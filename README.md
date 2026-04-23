@@ -1,5 +1,5 @@
 # Internet Router Network Optimization
-## COT-4400 — Analysis of Algorithms
+## COT - 4400: Analysis of Algorithms
 ### USF Bellini College of Artificial Intelligence, Cybersecurity and Computing
 
 **Team Members:**
@@ -91,4 +91,4 @@ make clean
 ---
 
 ## Course
-COT-4400 Analysis of Algorithms — Final Project
+COT - 4400: Analysis of Algorithms (Final Project)
