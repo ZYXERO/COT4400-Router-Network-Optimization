@@ -3,7 +3,7 @@
 ### USF Bellini College of Artificial Intelligence, Cybersecurity and Computing
 
 **Team Members:**
-- Seyoung Kan U — U36444259
+- Seyoung Kan — U36444259
 - Kaushik Selvakumar — U75300364
 
 ---
