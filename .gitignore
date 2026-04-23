@@ -1,0 +1,4 @@
+*.o
+*.out
+router_network
+.DS_Store
