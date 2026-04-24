@@ -1,9 +1,9 @@
 # Internet Router Network Optimization
-## COT-4400 — Analysis of Algorithms
+## COT - 4400: Analysis of Algorithms
 ### USF Bellini College of Artificial Intelligence, Cybersecurity and Computing
 
 **Team Members:**
-- Seyoung Kan U — U36444259
+- Seyoung Kan — U36444259
 - Kaushik Selvakumar — U75300364
 
 ---
@@ -91,4 +91,4 @@ make clean
 ---
 
 ## Course
-COT-4400 Analysis of Algorithms — Final Project
+COT - 4400: Analysis of Algorithms (Final Project)
