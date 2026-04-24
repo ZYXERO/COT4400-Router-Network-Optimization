@@ -4,7 +4,7 @@
 
 **Team Members:**
 - Kaushik Selvakumar — U75300364
-- Seyoung Kan U — U36444259
+- Seyoung Kan — U36444259
 
 ---
 
