@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>COT-4400 Router Network — Program Output</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1a1a2e;
+    font-family: 'Courier New', Courier, monospace;
+    color: #d4d4d4;
+    padding: 30px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    border: 1px solid #4ec9b0;
+    border-radius: 10px;
+    padding: 24px 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .header h1 { color: #4ec9b0; font-size: 20px; margin-bottom: 8px; }
+  .header p  { color: #9cdcfe; font-size: 13px; }
+  .section {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-left: 4px solid #4ec9b0;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  .section-title {
+    background: #161b22;
+    color: #4ec9b0;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-bottom: 1px solid #30363d;
+    letter-spacing: 1px;
+  }
+  pre {
+    padding: 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .highlight-row { background: #1a3a1a; color: #b5e890; display: block; padding: 0 20px; margin: 0 -20px; }
+  .kw   { color: #569cd6; }
+  .path { color: #4ec9b0; }
+  .num  { color: #b5cea8; }
+  .note { color: #ce9178; }
+  .sep  { color: #6a737d; }
+  .dest { color: #9cdcfe; }
+  .ok   { color: #4ec9b0; }
+  .warn { color: #f0a500; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 Internet Router Network Optimization</h1>
+  <p>COT-4400 Analysis of Algorithms &nbsp;|&nbsp; USF Bellini College</p>
+  <p>Team: Seyoung Kan U (U36444259) &nbsp;|&nbsp; Kaushik Selvakumar (U75300364)</p>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section" id="s1">
+  <div class="section-title">SECTION 1 — Graph Adjacency List</div>
+<pre>
+=== Graph Adjacency List ===
+(Format: Router -> Neighbor [weight ms])
+
+<span class="dest">R0</span>  -> <span class="num">R1[10ms]</span>, <span class="num">R2[15ms]</span>, <span class="num">R3[20ms]</span>
+<span class="dest">R1</span>  -> <span class="num">R4[12ms]</span>, <span class="num">R5[18ms]</span>
+<span class="dest">R2</span>  -> <span class="num">R4[8ms]</span>,  <span class="num">R6[14ms]</span>
+<span class="dest">R3</span>  -> <span class="num">R6[22ms]</span>, <span class="num">R7[9ms]</span>
+<span class="dest">R4</span>  -> <span class="num">R8[11ms]</span>, <span class="num">R9[7ms]</span>
+<span class="dest">R5</span>  -> <span class="num">R8[13ms]</span>, <span class="num">R10[6ms]</span>
+<span class="dest">R6</span>  -> <span class="num">R9[16ms]</span>, <span class="num">R11[10ms]</span>
+<span class="dest">R7</span>  -> <span class="num">R11[5ms]</span>, <span class="num">R12[20ms]</span>
+<span class="dest">R8</span>  -> <span class="num">R13[9ms]</span>, <span class="num">R14[14ms]</span>
+<span class="dest">R9</span>  -> <span class="num">R13[18ms]</span>, <span class="num">R15[11ms]</span>
+<span class="dest">R10</span> -> <span class="num">R14[7ms]</span>, <span class="num">R15[13ms]</span>
+<span class="dest">R11</span> -> <span class="num">R16[8ms]</span>, <span class="num">R17[15ms]</span>
+<span class="dest">R12</span> -> <span class="num">R17[6ms]</span>, <span class="num">R18[19ms]</span>
+<span class="dest">R13</span> -> <span class="num">R19[10ms]</span>
+<span class="dest">R14</span> -> <span class="num">R19[12ms]</span>
+<span class="dest">R15</span> -> <span class="num">R19[9ms]</span>
+<span class="dest">R16</span> -> <span class="num">R19[7ms]</span>
+<span class="dest">R17</span> -> <span class="num">R19[11ms]</span>
+<span class="dest">R18</span> -> <span class="num">R19[14ms]</span>
+<span class="dest">R19</span> -> (no outgoing edges)
+
+<span class="ok">Total Routers (Vertices): 20</span>
+<span class="ok">Total Connections (Edges): 33</span>
+</pre>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="s2">
+  <div class="section-title">SECTION 2 — BFS Traversal from R0</div>
+<pre>
+<span class="note">Time Complexity:  O(V + E)</span>
+<span class="note">Space Complexity: O(V)</span>
+
+Visit Order:
+  [1]  Visited <span class="path">R0</span>
+  [2]  Visited <span class="path">R1</span>
+  [3]  Visited <span class="path">R2</span>
+  [4]  Visited <span class="path">R3</span>
+  [5]  Visited <span class="path">R4</span>
+  [6]  Visited <span class="path">R5</span>
+  [7]  Visited <span class="path">R6</span>
+  [8]  Visited <span class="path">R7</span>
+  [9]  Visited <span class="path">R8</span>
+  [10] Visited <span class="path">R9</span>
+  [11] Visited <span class="path">R10</span>
+  [12] Visited <span class="path">R11</span>
+  [13] Visited <span class="path">R12</span>
+  [14] Visited <span class="path">R13</span>
+  [15] Visited <span class="path">R14</span>
+  [16] Visited <span class="path">R15</span>
+  [17] Visited <span class="path">R16</span>
+  [18] Visited <span class="path">R17</span>
+  [19] Visited <span class="path">R18</span>
+  [20] Visited <span class="path">R19</span>
+
+<span class="ok">Routers unreachable from R0: None (all routers reachable)</span>
+</pre>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="s3">
+  <div class="section-title">SECTION 3 — DFS Traversal from R0</div>
+<pre>
+<span class="note">Time Complexity:  O(V + E)</span>
+<span class="note">Space Complexity: O(V)</span>
+
+Visit Order:
+  [1]  Visited <span class="path">R0</span>
+  [2]  Visited <span class="path">R1</span>
+  [3]  Visited <span class="path">R4</span>
+  [4]  Visited <span class="path">R8</span>
+  [5]  Visited <span class="path">R13</span>
+  [6]  Visited <span class="path">R19</span>
+  [7]  Visited <span class="path">R14</span>
+  [8]  Visited <span class="path">R9</span>
+  [9]  Visited <span class="path">R15</span>
+  [10] Visited <span class="path">R5</span>
+  [11] Visited <span class="path">R10</span>
+  [12] Visited <span class="path">R2</span>
+  [13] Visited <span class="path">R6</span>
+  [14] Visited <span class="path">R11</span>
+  [15] Visited <span class="path">R16</span>
+  [16] Visited <span class="path">R17</span>
+  [17] Visited <span class="path">R3</span>
+  [18] Visited <span class="path">R7</span>
+  [19] Visited <span class="path">R12</span>
+  [20] Visited <span class="path">R18</span>
+
+<span class="ok">DFS complete. Total routers visited: 20/20</span>
+</pre>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="s4">
+  <div class="section-title">SECTION 4 — Dijkstra's Shortest Path from R0</div>
+<pre>
+<span class="warn">NOTE: Does NOT support negative edge weights.</span>
+<span class="note">Time Complexity:  O((V + E) log V)</span>
+<span class="note">Space Complexity: O(V)</span>
+
+<span class="sep">------------------------------------------------------------</span>
+<span class="kw">Destination | Latency (ms) | Path</span>
+<span class="sep">------------------------------------------------------------</span>
+<span class="dest">R0</span>          | <span class="num">0ms</span>           | R0
+<span class="dest">R1</span>          | <span class="num">10ms</span>          | R0 -> R1
+<span class="dest">R2</span>          | <span class="num">15ms</span>          | R0 -> R2
+<span class="dest">R3</span>          | <span class="num">20ms</span>          | R0 -> R3
+<span class="dest">R4</span>          | <span class="num">22ms</span>          | R0 -> R1 -> R4
+<span class="dest">R5</span>          | <span class="num">28ms</span>          | R0 -> R1 -> R5
+<span class="dest">R6</span>          | <span class="num">29ms</span>          | R0 -> R2 -> R6
+<span class="dest">R7</span>          | <span class="num">29ms</span>          | R0 -> R3 -> R7
+<span class="dest">R8</span>          | <span class="num">33ms</span>          | R0 -> R1 -> R4 -> R8
+<span class="dest">R9</span>          | <span class="num">29ms</span>          | R0 -> R1 -> R4 -> R9
+<span class="dest">R10</span>         | <span class="num">34ms</span>          | R0 -> R1 -> R5 -> R10
+<span class="dest">R11</span>         | <span class="num">34ms</span>          | R0 -> R3 -> R7 -> R11
+<span class="dest">R12</span>         | <span class="num">49ms</span>          | R0 -> R3 -> R7 -> R12
+<span class="dest">R13</span>         | <span class="num">42ms</span>          | R0 -> R1 -> R4 -> R8 -> R13
+<span class="dest">R14</span>         | <span class="num">41ms</span>          | R0 -> R1 -> R5 -> R10 -> R14
+<span class="dest">R15</span>         | <span class="num">40ms</span>          | R0 -> R1 -> R4 -> R9 -> R15
+<span class="dest">R16</span>         | <span class="num">42ms</span>          | R0 -> R3 -> R7 -> R11 -> R16
+<span class="dest">R17</span>         | <span class="num">49ms</span>          | R0 -> R3 -> R7 -> R11 -> R17
+<span class="dest">R18</span>         | <span class="num">68ms</span>          | R0 -> R3 -> R7 -> R12 -> R18
+<span class="highlight-row"><span class="dest">R19</span>         | <span class="ok">49ms</span>          | <span class="ok">R0 -> R1 -> R4 -> R9 -> R15 -> R19</span>  ★ SHORTEST PATH</span>
+<span class="sep">------------------------------------------------------------</span>
+</pre>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="s5">
+  <div class="section-title">SECTION 5 — Bellman-Ford Shortest Path from R0</div>
+<pre>
+<span class="ok">Supports negative edge weights. Detects negative cycles.</span>
+<span class="note">Best Case Time:  O(E)     (paths stabilize in 1 pass)</span>
+<span class="note">Worst Case Time: O(V * E)</span>
+<span class="note">Space Complexity: O(V)</span>
+
+<span class="ok">Early termination after pass 2 (Best Case achieved)</span>
+
+<span class="sep">------------------------------------------------------------</span>
+<span class="kw">Destination | Latency (ms) | Path</span>
+<span class="sep">------------------------------------------------------------</span>
+<span class="dest">R0</span>          | <span class="num">0ms</span>           | R0
+<span class="dest">R1</span>          | <span class="num">10ms</span>          | R0 -> R1
+<span class="dest">R2</span>          | <span class="num">15ms</span>          | R0 -> R2
+<span class="dest">R3</span>          | <span class="num">20ms</span>          | R0 -> R3
+<span class="dest">R4</span>          | <span class="num">22ms</span>          | R0 -> R1 -> R4
+<span class="dest">R5</span>          | <span class="num">28ms</span>          | R0 -> R1 -> R5
+<span class="dest">R6</span>          | <span class="num">29ms</span>          | R0 -> R2 -> R6
+<span class="dest">R7</span>          | <span class="num">29ms</span>          | R0 -> R3 -> R7
+<span class="dest">R8</span>          | <span class="num">33ms</span>          | R0 -> R1 -> R4 -> R8
+<span class="dest">R9</span>          | <span class="num">29ms</span>          | R0 -> R1 -> R4 -> R9
+<span class="dest">R10</span>         | <span class="num">34ms</span>          | R0 -> R1 -> R5 -> R10
+<span class="dest">R11</span>         | <span class="num">34ms</span>          | R0 -> R3 -> R7 -> R11
+<span class="dest">R12</span>         | <span class="num">49ms</span>          | R0 -> R3 -> R7 -> R12
+<span class="dest">R13</span>         | <span class="num">42ms</span>          | R0 -> R1 -> R4 -> R8 -> R13
+<span class="dest">R14</span>         | <span class="num">41ms</span>          | R0 -> R1 -> R5 -> R10 -> R14
+<span class="dest">R15</span>         | <span class="num">40ms</span>          | R0 -> R1 -> R4 -> R9 -> R15
+<span class="dest">R16</span>         | <span class="num">42ms</span>          | R0 -> R3 -> R7 -> R11 -> R16
+<span class="dest">R17</span>         | <span class="num">49ms</span>          | R0 -> R3 -> R7 -> R11 -> R17
+<span class="dest">R18</span>         | <span class="num">68ms</span>          | R0 -> R3 -> R7 -> R12 -> R18
+<span class="dest">R19</span>         | <span class="num">49ms</span>          | R0 -> R1 -> R4 -> R9 -> R15 -> R19
+<span class="sep">------------------------------------------------------------</span>
+</pre>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="s6">
+  <div class="section-title">SECTION 6 — Kruskal's Minimum Spanning Tree</div>
+<pre>
+<span class="note">NOTE: MST computed on undirected version of the graph.</span>
+<span class="note">Time Complexity:  O(E log E)</span>
+<span class="note">Space Complexity: O(V)</span>
+
+MST Edges (sorted by inclusion order):
+<span class="sep">--------------------------------------------------</span>
+<span class="kw">Edge              | Weight (ms)</span>
+<span class="sep">--------------------------------------------------</span>
+R7  -- R11        | <span class="num">5ms</span>
+R5  -- R10        | <span class="num">6ms</span>
+R12 -- R17        | <span class="num">6ms</span>
+R4  -- R9         | <span class="num">7ms</span>
+R10 -- R14        | <span class="num">7ms</span>
+R16 -- R19        | <span class="num">7ms</span>
+R2  -- R4         | <span class="num">8ms</span>
+R11 -- R16        | <span class="num">8ms</span>
+R3  -- R7         | <span class="num">9ms</span>
+R8  -- R13        | <span class="num">9ms</span>
+R15 -- R19        | <span class="num">9ms</span>
+R0  -- R1         | <span class="num">10ms</span>
+R6  -- R11        | <span class="num">10ms</span>
+R13 -- R19        | <span class="num">10ms</span>
+R4  -- R8         | <span class="num">11ms</span>
+R17 -- R19        | <span class="num">11ms</span>
+R1  -- R4         | <span class="num">12ms</span>
+R14 -- R19        | <span class="num">12ms</span>
+R18 -- R19        | <span class="num">14ms</span>
+<span class="sep">--------------------------------------------------</span>
+<span class="ok">Total MST edges:  19</span>
+<span class="ok">Total MST weight: 171ms</span>
+</pre>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="s7">
+  <div class="section-title">SECTION 7 — Experimental Performance Analysis</div>
+<pre>
+<span class="note">Timing unit: microseconds (μs)</span>
+<span class="note">Source node: 0 for all traversal/SSSP algorithms</span>
+
+Graph Sizes:
+  Small Sparse: <span class="num">10 nodes</span>, <span class="num">12 edges</span>
+  Small Dense:  <span class="num">10 nodes</span>, <span class="num">45 edges</span>
+  Large Sparse: <span class="num">50 nodes</span>, <span class="num">65 edges</span>
+  Large Dense:  <span class="num">50 nodes</span>, <span class="num">1225 edges</span>
+
+<span class="sep">----------------------------------------------------------------------------------</span>
+<span class="kw">Algorithm     | Small Sparse    | Small Dense     | Large Sparse    | Large Dense</span>
+<span class="sep">----------------------------------------------------------------------------------</span>
+BFS           | <span class="num">0.561μs</span>        | <span class="num">0.231μs</span>        | <span class="num">0.260μs</span>        | <span class="num">1.644μs</span>
+DFS           | <span class="num">0.250μs</span>        | <span class="num">0.180μs</span>        | <span class="num">0.361μs</span>        | <span class="num">1.623μs</span>
+Dijkstra      | <span class="num">0.461μs</span>        | <span class="num">0.471μs</span>        | <span class="num">1.112μs</span>        | <span class="num">3.317μs</span>
+Bellman-Ford  | <span class="num">0.170μs</span>        | <span class="num">0.140μs</span>        | <span class="num">0.611μs</span>        | <span class="num">1.644μs</span>
+Kruskal       | <span class="num">0.541μs</span>        | <span class="num">1.172μs</span>        | <span class="num">2.194μs</span>        | <span class="num">50.466μs</span>
+<span class="sep">----------------------------------------------------------------------------------</span>
+
+<span class="ok">Key Observations:</span>
+  - BFS/DFS are fastest (simple traversal, O(V+E))
+  - Dijkstra is efficient for sparse graphs (O((V+E) log V))
+  - Bellman-Ford is slowest on dense graphs (O(V*E))
+  - Kruskal scales with edges (O(E log E))
+</pre>
+</div>
+
+</body>
+</html>
